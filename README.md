@@ -166,7 +166,7 @@ The daemon runs permanently as root under launchd. It polls `/tmp/fancurve_targe
 
 ### Apple Silicon unlock sequence
 
-On M4 and later, you cannot simply write to `F0Tg` to control fan speed. `thermalmonitord` — Apple's thermal management daemon — owns the fans and resets any manual target within seconds. The unlock sequence must be performed in order:
+On Apple Silicon Macs, you cannot simply write to `F0Tg` to control fan speed. `thermalmonitord` — Apple's thermal management daemon — owns the fans and resets any manual target within seconds. The unlock sequence must be performed in order:
 
 **Step 1 — Write `Ftst=1`**
 
@@ -174,7 +174,7 @@ On M4 and later, you cannot simply write to `F0Tg` to control fan speed. `therma
 
 **Step 2 — Poll `F%dMd=1`**
 
-After asserting `Ftst`, the fan mode write (`F0Md`) initially returns `0x82` (SMC_ERR_BAD_CMD), meaning `thermalmonitord` hasn't relinquished control yet. The daemon polls with 100ms intervals for up to 10 seconds until the write succeeds (returns 0). This typically takes 3–6 seconds on M4.
+After asserting `Ftst`, the fan mode write (`F0Md`) initially returns `0x82` (SMC_ERR_BAD_CMD), meaning `thermalmonitord` hasn't relinquished control yet. The daemon polls with 100ms intervals for up to 10 seconds until the write succeeds (returns 0). This typically takes 3–6 seconds on Apple Silicon.
 
 Once in manual mode, the mode write is re-asserted every loop iteration. If `thermalmonitord` reclaims a fan (resets the mode bit), the next iteration detects the `0x82` response and re-runs the polled unlock.
 

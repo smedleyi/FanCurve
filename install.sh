@@ -44,7 +44,7 @@ echo "  ✓ App installed"
 # ── 3. Install root daemon (requires admin password) ──────────────────────
 echo ""
 echo "→ Installing root daemon (requires admin password)…"
-echo "  The daemon runs as root to maintain the M4 fan unlock sequence."
+echo "  The daemon runs as root to maintain the Apple Silicon fan unlock sequence."
 echo ""
 sudo mkdir -p /usr/local/bin
 sudo cp "$DAEMON_SRC" /usr/local/bin/fancurve-daemon

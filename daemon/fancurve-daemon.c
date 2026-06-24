@@ -1,7 +1,7 @@
 /*
  * fancurve-daemon  —  root daemon for Apple Silicon fan control
  *
- * The M4 requires an unlock sequence before manual fan control works:
+ * Apple Silicon Macs require an unlock sequence before manual fan control works:
  *   1. Write Ftst=1  (suppresses thermalmonitord's LifetimeServoController)
  *   2. Poll F%dMd=1  (mode write returns 0x82/SmcBadCommand until Ftst takes
  *                     effect; typically succeeds within 3-6 s)
@@ -147,7 +147,7 @@ static void clearFtst(void) {
 
 /*
  * Enter manual mode for one fan. Returns 1 on success.
- * On M4, F%dMd write returns 0x82 until Ftst=1 has suppressed thermalmonitord.
+ * On Apple Silicon, F%dMd write returns 0x82 until Ftst=1 has suppressed thermalmonitord.
  * We poll with 100ms intervals up to UNLOCK_TIMEOUT_MS.
  */
 static int enterManualMode(int fan) {
@@ -205,7 +205,7 @@ int main(void) {
         char acKey[8]; snprintf(acKey, sizeof(acKey), "F%dAc", i);
         if (smcKeyExists(acKey)) numFans = i + 1; else break;
     }
-    if (numFans == 0) numFans = 2;  /* M4 Pro fallback */
+    if (numFans == 0) numFans = 2;  /* fallback for Apple Silicon Pro/Max chips */
     LOG("detected %d fan(s)", numFans);
 
     int manualMode  = 0;

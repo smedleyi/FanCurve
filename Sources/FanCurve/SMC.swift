@@ -3,7 +3,7 @@ import IOKit
 
 // SMC reads: direct IOKit (no root needed).
 // SMC writes: written to TARGET_FILE; fancurve-daemon (running as root) picks
-// them up and handles the M4 unlock sequence (Ftst + F%dMd + F%dTg).
+// them up and handles the Apple Silicon unlock sequence (Ftst + F%dMd + F%dTg).
 enum SMC {
     static let targetFile = "/tmp/fancurve_target"
 
