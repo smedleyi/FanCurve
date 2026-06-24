@@ -43,8 +43,7 @@ struct ProfileEditorView: View {
             }
         }
         .frame(width: 640, height: 490)
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .windowBackgroundColor).opacity(0.92)))
-        .glassEffect(.clear, in: RoundedRectangle(cornerRadius: 10))
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .windowBackgroundColor)))
         .onExitCommand { onDismiss() }
     }
 
