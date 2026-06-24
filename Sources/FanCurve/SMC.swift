@@ -37,8 +37,12 @@ enum SMC {
 
     static func fanCount() -> Int {
         var n = 0
-        for i in 0..<4 { if readFloat("F\(i)Ac") != nil { n = i + 1 } else { break } }
-        return n > 0 ? n : 2
+        for i in 0..<4 {
+            guard readFloat("F\(i)Ac") != nil,
+                  let mn = readFloat("F\(i)Mn"), mn > 0 else { break }
+            n = i + 1
+        }
+        return max(n, 1)
     }
 
     static func fanMin(_ fan: Int) -> Double { readFloat("F\(fan)Mn") ?? 1200 }
