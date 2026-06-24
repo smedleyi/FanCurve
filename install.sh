@@ -19,9 +19,6 @@ APP_DEST="$HOME/Applications/FanCurve.app"
 DAEMON_SRC="/tmp/fancurve-daemon-build"
 DAEMON_C="$SCRIPT_DIR/daemon/fancurve-daemon.c"
 
-echo "  SCRIPT_DIR: $SCRIPT_DIR"
-echo "  DAEMON_C:   $DAEMON_C"
-ls "$DAEMON_C" 2>&1 || true
 DAEMON_PLIST="$SCRIPT_DIR/com.local.fancurve-daemon.plist"
 AGENT_PLIST="$SCRIPT_DIR/com.local.fancurve.plist"
 
@@ -49,6 +46,7 @@ echo ""
 echo "→ Installing root daemon (requires admin password)…"
 echo "  The daemon runs as root to maintain the M4 fan unlock sequence."
 echo ""
+sudo mkdir -p /usr/local/bin
 sudo cp "$DAEMON_SRC" /usr/local/bin/fancurve-daemon
 sudo chown root:wheel /usr/local/bin/fancurve-daemon
 sudo chmod 755 /usr/local/bin/fancurve-daemon
