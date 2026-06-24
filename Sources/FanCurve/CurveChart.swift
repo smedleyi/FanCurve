@@ -110,8 +110,11 @@ struct CurveChart: View {
             p.move(to: CGPoint(x: 0, y: y)); p.addLine(to: CGPoint(x: w, y: y))
             ctx.stroke(p, with: .color(.secondary.opacity(0.1)))
         }
+        var lastLabelY: CGFloat = h + 99
         for r in [0.0, 2000, 4000, 6000, fanMax] where r <= fanMax {
             let y = yPos(r, h: h)
+            guard abs(y - lastLabelY) >= 22 else { continue }
+            lastLabelY = y
             let anchor: UnitPoint = r == 0 ? .bottomLeading : r == fanMax ? .topLeading : .leading
             let label = ctx.resolve(
                 Text(rpmLabel(r))
