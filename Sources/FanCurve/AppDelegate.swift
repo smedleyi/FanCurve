@@ -45,7 +45,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         // profile editor window doesn't accidentally close the panel.
         eventMonitor = NSEvent.addGlobalMonitorForEvents(
             matching: [.leftMouseDown, .rightMouseDown]
-        ) { [weak self] _ in self?.closePanel() }
+        ) { [weak self] _ in
+            self?.editorPanel?.orderOut(nil)
+            self?.closePanel()
+        }
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -55,6 +58,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidResignActive(_ notification: Notification) {
         editorPanel?.orderOut(nil)
+        closePanel()
     }
 
     // MARK: - Main menu
@@ -120,7 +124,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc private func togglePanel(_ sender: NSStatusBarButton) {
-        if menuPanel.isVisible { closePanel() } else { showPanel() }
+        if editorPanel?.isVisible == true {
+            editorPanel?.orderOut(nil)
+        } else if menuPanel.isVisible {
+            closePanel()
+        } else {
+            showPanel()
+        }
     }
 
     private func showPanel() {
@@ -156,6 +166,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func showEditorPanel() {
         if editorPanel?.isVisible == true { editorPanel?.orderFront(nil); return }
 
+        closePanel()
+
         let w: CGFloat = 640
         let h: CGFloat = 490
 
@@ -163,7 +175,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             rootView: ProfileEditorView(
                 store: controller.store,
                 controller: controller,
-                onDismiss: { [weak self] in self?.editorPanel?.orderOut(nil) }
+                onDismiss: { [weak self] in
+                    self?.editorPanel?.orderOut(nil)
+                    self?.showPanel()
+                }
             ),
             fixedSize: NSSize(width: w, height: h)
         )
