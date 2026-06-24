@@ -118,6 +118,8 @@ final class ProfileStore: ObservableObject {
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         savePath = dir.appendingPathComponent("profiles.json")
 
+        let allDefs = FanProfile.defaults(fanMax: fanMax)
+
         if let data = try? Data(contentsOf: savePath),
            let saved = try? JSONDecoder().decode(Saved.self, from: data),
            !saved.profiles.isEmpty {
@@ -130,20 +132,19 @@ final class ProfileStore: ObservableObject {
                 for i in profiles.indices { profiles[i].maxFanSpeed = globalCap }
             }
         } else {
-            let defs = FanProfile.defaults(fanMax: fanMax)
-            profiles = defs
-            activeProfileID = defs[1].id
+            profiles = allDefs
+            activeProfileID = allDefs[1].id
         }
 
         // Migration: stamp isBuiltIn on profiles loaded from older saves that lack the flag.
-        let builtInNames = Set(FanProfile.defaults(fanMax: fanMax).map { $0.name })
+        let builtInNames = Set(allDefs.map { $0.name })
         for i in profiles.indices where !profiles[i].isBuiltIn {
             if builtInNames.contains(profiles[i].name) { profiles[i].isBuiltIn = true }
         }
 
         // Migration: insert any built-in profiles that don't exist in the saved list yet.
         let existingNames = Set(profiles.map { $0.name })
-        for def in FanProfile.defaults(fanMax: fanMax) where !existingNames.contains(def.name) {
+        for def in allDefs where !existingNames.contains(def.name) {
             profiles.append(def)
         }
 

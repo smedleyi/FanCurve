@@ -38,11 +38,11 @@ enum SMC {
     static func fanCount() -> Int {
         var n = 0
         for i in 0..<4 {
-            guard readFloat("F\(i)Ac") != nil,
-                  let mn = readFloat("F\(i)Mn"), mn > 0 else { break }
-            n = i + 1
+            guard readFloat("F\(i)Ac") != nil else { break }  // stop at first absent slot
+            let mn = readFloat("F\(i)Mn") ?? 1200             // absent key → assume real fan
+            if mn > 0 { n = i + 1 }                          // zero min RPM → ghost slot
         }
-        return max(n, 1)
+        return n
     }
 
     static func fanMin(_ fan: Int) -> Double { readFloat("F\(fan)Mn") ?? 1200 }

@@ -46,7 +46,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         eventMonitor = NSEvent.addGlobalMonitorForEvents(
             matching: [.leftMouseDown, .rightMouseDown]
         ) { [weak self] _ in
-            self?.editorPanel?.orderOut(nil)
+            self?.closeEditorPanel()
             self?.closePanel()
         }
     }
@@ -57,7 +57,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidResignActive(_ notification: Notification) {
-        editorPanel?.orderOut(nil)
+        closeEditorPanel()
         closePanel()
     }
 
@@ -125,7 +125,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc private func togglePanel(_ sender: NSStatusBarButton) {
         if editorPanel?.isVisible == true {
-            editorPanel?.orderOut(nil)
+            closeEditorPanel()
         } else if menuPanel.isVisible {
             closePanel()
         } else {
@@ -146,6 +146,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func closePanel() { menuPanel.orderOut(nil) }
+
+    private func closeEditorPanel() {
+        editorPanel?.orderOut(nil)
+        editorPanel = nil
+        editorHC = nil
+    }
 
     private func fitPanelToContent() {
         let h = max(menuHC.preferredContentSize.height, 100)
@@ -176,7 +182,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 store: controller.store,
                 controller: controller,
                 onDismiss: { [weak self] in
-                    self?.editorPanel?.orderOut(nil)
+                    self?.closeEditorPanel()
                     self?.showPanel()
                 }
             ),
