@@ -360,8 +360,8 @@ struct ProfileEditorView: View {
     private var footer: some View {
         HStack {
             Button("Default") {
-                let match = FanProfile.defaults.first { $0.name == profile.name }
-                            ?? FanProfile.defaultProfile
+                let match = FanProfile.defaults(fanMax: controller.fanMax).first { $0.name == profile.name }
+                            ?? FanProfile.defaultProfile(fanMax: controller.fanMax)
                 store.profiles[selectedIndex].points = match.points
                 store.save()
             }
@@ -404,7 +404,7 @@ struct ProfileEditorView: View {
     }
 
     private func addProfile() {
-        let base = FanProfile.defaultProfile
+        let base = FanProfile.defaultProfile(fanMax: controller.fanMax)
         let newProfile = FanProfile(
             name: "Custom \(store.profiles.count + 1)",
             points: base.points

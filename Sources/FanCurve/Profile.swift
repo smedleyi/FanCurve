@@ -50,10 +50,10 @@ struct FanProfile: Codable, Identifiable {
         return sorted.last!.rpm
     }
 
-    static var defaultProfile: FanProfile { defaults[1] }
+    static func defaultProfile(fanMax: Double) -> FanProfile { defaults(fanMax: fanMax)[1] }
 
-    // Built-in default profiles
-    static let defaults: [FanProfile] = [
+    // Built-in default profiles — top RPM values scale to actual hardware max
+    static func defaults(fanMax: Double) -> [FanProfile] { [
         FanProfile(name: "Silent", points: [
             CurvePoint(tempC: 0,   rpm: 0),
             CurvePoint(tempC: 45,  rpm: 0),
@@ -61,8 +61,8 @@ struct FanProfile: Codable, Identifiable {
             CurvePoint(tempC: 65,  rpm: 2000),
             CurvePoint(tempC: 75,  rpm: 3200),
             CurvePoint(tempC: 85,  rpm: 5000),
-            CurvePoint(tempC: 95,  rpm: 7826),
-            CurvePoint(tempC: 105, rpm: 7826),
+            CurvePoint(tempC: 95,  rpm: fanMax),
+            CurvePoint(tempC: 105, rpm: fanMax),
         ], isBuiltIn: true),
         FanProfile(name: "Balanced", points: [
             CurvePoint(tempC: 0,   rpm: 0),
@@ -71,8 +71,8 @@ struct FanProfile: Codable, Identifiable {
             CurvePoint(tempC: 65,  rpm: 3000),
             CurvePoint(tempC: 75,  rpm: 4500),
             CurvePoint(tempC: 85,  rpm: 6200),
-            CurvePoint(tempC: 95,  rpm: 7826),
-            CurvePoint(tempC: 105, rpm: 7826),
+            CurvePoint(tempC: 95,  rpm: fanMax),
+            CurvePoint(tempC: 105, rpm: fanMax),
         ], isBuiltIn: true),
         FanProfile(name: "macOS Default", points: [
             CurvePoint(tempC: 0,   rpm: 0),
@@ -80,18 +80,18 @@ struct FanProfile: Codable, Identifiable {
             CurvePoint(tempC: 53,  rpm: 1200),
             CurvePoint(tempC: 68,  rpm: 2500),
             CurvePoint(tempC: 78,  rpm: 5000),
-            CurvePoint(tempC: 88,  rpm: 7826),
-            CurvePoint(tempC: 105, rpm: 7826),
+            CurvePoint(tempC: 88,  rpm: fanMax),
+            CurvePoint(tempC: 105, rpm: fanMax),
         ], isBuiltIn: true),
         FanProfile(name: "Performance", points: [
             CurvePoint(tempC: 0,   rpm: 3000),
             CurvePoint(tempC: 50,  rpm: 3000),
             CurvePoint(tempC: 65,  rpm: 5000),
             CurvePoint(tempC: 75,  rpm: 6500),
-            CurvePoint(tempC: 85,  rpm: 7826),
-            CurvePoint(tempC: 105, rpm: 7826),
+            CurvePoint(tempC: 85,  rpm: fanMax),
+            CurvePoint(tempC: 105, rpm: fanMax),
         ], isBuiltIn: true),
-    ]
+    ] }
 }
 
 // MARK: - ProfileStore
@@ -112,7 +112,7 @@ final class ProfileStore: ObservableObject {
 
     private let savePath: URL
 
-    init() {
+    init(fanMax: Double) {
         let dir = FileManager.default.homeDirectoryForCurrentUser
             .appendingPathComponent(".config/fancurve")
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
@@ -130,19 +130,20 @@ final class ProfileStore: ObservableObject {
                 for i in profiles.indices { profiles[i].maxFanSpeed = globalCap }
             }
         } else {
-            profiles = FanProfile.defaults
-            activeProfileID = FanProfile.defaultProfile.id
+            let defs = FanProfile.defaults(fanMax: fanMax)
+            profiles = defs
+            activeProfileID = defs[1].id
         }
 
         // Migration: stamp isBuiltIn on profiles loaded from older saves that lack the flag.
-        let builtInNames = Set(FanProfile.defaults.map { $0.name })
+        let builtInNames = Set(FanProfile.defaults(fanMax: fanMax).map { $0.name })
         for i in profiles.indices where !profiles[i].isBuiltIn {
             if builtInNames.contains(profiles[i].name) { profiles[i].isBuiltIn = true }
         }
 
         // Migration: insert any built-in profiles that don't exist in the saved list yet.
         let existingNames = Set(profiles.map { $0.name })
-        for def in FanProfile.defaults where !existingNames.contains(def.name) {
+        for def in FanProfile.defaults(fanMax: fanMax) where !existingNames.contains(def.name) {
             profiles.append(def)
         }
 
@@ -153,7 +154,7 @@ final class ProfileStore: ObservableObject {
                 profiles[i].points.append(CurvePoint(tempC: 0, rpm: sorted.first?.rpm ?? 1200))
             }
             if sorted.last?.tempC != 105 {
-                profiles[i].points.append(CurvePoint(tempC: 105, rpm: sorted.last?.rpm ?? 7826))
+                profiles[i].points.append(CurvePoint(tempC: 105, rpm: sorted.last?.rpm ?? fanMax))
             }
         }
         save()

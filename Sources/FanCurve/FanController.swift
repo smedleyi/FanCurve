@@ -12,7 +12,7 @@ final class FanController: ObservableObject {
     @Published var fanMax: Double = 7826
     @Published var isAutoMode: Bool = false
     @Published var isMaxFan:  Bool = false
-    @Published var store = ProfileStore()
+    @Published var store: ProfileStore
     @Published var writePermissionOK: Bool = true  // false if smc writes fail
 
     // RPM we last commanded
@@ -31,7 +31,9 @@ final class FanController: ObservableObject {
     init() {
         fanCount = SMC.fanCount()
         fanMin   = SMC.fanMin(0)
-        fanMax   = SMC.fanMax(0)
+        let hwMax = SMC.fanMax(0)
+        fanMax   = hwMax
+        store    = ProfileStore(fanMax: hwMax)
         refresh()
         timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { [weak self] _ in
             Task { @MainActor [weak self] in self?.tick() }
