@@ -16,8 +16,12 @@ if [ ! -d "$SCRIPT_DIR/daemon" ]; then
 fi
 
 APP_DEST="$HOME/Applications/FanCurve.app"
-DAEMON_SRC="$SCRIPT_DIR/daemon/fancurve-daemon"
+DAEMON_SRC="/tmp/fancurve-daemon-build"
 DAEMON_C="$SCRIPT_DIR/daemon/fancurve-daemon.c"
+
+echo "  SCRIPT_DIR: $SCRIPT_DIR"
+echo "  DAEMON_C:   $DAEMON_C"
+ls "$DAEMON_C" 2>&1 || true
 DAEMON_PLIST="$SCRIPT_DIR/com.local.fancurve-daemon.plist"
 AGENT_PLIST="$SCRIPT_DIR/com.local.fancurve.plist"
 
