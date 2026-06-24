@@ -1,0 +1,55 @@
+{
+  "": {
+    "dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/FanCurve.d",
+    "object": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/FanCurve.o",
+    "swift-dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/master.swiftdeps"
+  },
+  "/Users/isaac/Projects/FanCurve/Sources/FanCurve/AppDelegate.swift": {
+    "object": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/AppDelegate.swift.o",
+    "swiftmodule": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/AppDelegate~partial.swiftmodule",
+    "swift-dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/AppDelegate.swiftdeps",
+    "diagnostics": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/AppDelegate.dia"
+  },
+  "/Users/isaac/Projects/FanCurve/Sources/FanCurve/CurveChart.swift": {
+    "object": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/CurveChart.swift.o",
+    "swiftmodule": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/CurveChart~partial.swiftmodule",
+    "swift-dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/CurveChart.swiftdeps",
+    "diagnostics": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/CurveChart.dia"
+  },
+  "/Users/isaac/Projects/FanCurve/Sources/FanCurve/FanController.swift": {
+    "object": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/FanController.swift.o",
+    "swiftmodule": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/FanController~partial.swiftmodule",
+    "swift-dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/FanController.swiftdeps",
+    "diagnostics": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/FanController.dia"
+  },
+  "/Users/isaac/Projects/FanCurve/Sources/FanCurve/MenuContentView.swift": {
+    "object": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/MenuContentView.swift.o",
+    "swiftmodule": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/MenuContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/MenuContentView.swiftdeps",
+    "diagnostics": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/MenuContentView.dia"
+  },
+  "/Users/isaac/Projects/FanCurve/Sources/FanCurve/Profile.swift": {
+    "object": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/Profile.swift.o",
+    "swiftmodule": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/Profile~partial.swiftmodule",
+    "swift-dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/Profile.swiftdeps",
+    "diagnostics": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/Profile.dia"
+  },
+  "/Users/isaac/Projects/FanCurve/Sources/FanCurve/ProfileEditorView.swift": {
+    "object": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/ProfileEditorView.swift.o",
+    "swiftmodule": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/ProfileEditorView~partial.swiftmodule",
+    "swift-dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/ProfileEditorView.swiftdeps",
+    "diagnostics": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/ProfileEditorView.dia"
+  },
+  "/Users/isaac/Projects/FanCurve/Sources/FanCurve/SMC.swift": {
+    "object": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/SMC.swift.o",
+    "swiftmodule": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/SMC~partial.swiftmodule",
+    "swift-dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/SMC.swiftdeps",
+    "diagnostics": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/SMC.dia"
+  },
+  "/Users/isaac/Projects/FanCurve/Sources/FanCurve/main.swift": {
+    "object": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/main.swift.o",
+    "swiftmodule": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/main.swiftdeps",
+    "diagnostics": "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/main.dia"
+  }
+}

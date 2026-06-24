@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.local.fancurve</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/isaac/Applications/FanCurve.app/Contents/MacOS/FanCurve</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/tmp/fancurve.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/fancurve-error.log</string>
+</dict>
+</plist>

@@ -1,0 +1,352 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.FanCurve-arm64-apple-macosx26.0-release.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/sources",
+      "importPath" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/AppDelegate.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/CurveChart.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/FanController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/MenuContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/Profile.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/ProfileEditorView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/SMC.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "FanCurve",
+      "moduleOutputPath" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/Modules/FanCurve.swiftmodule",
+      "objects" : [
+        "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/AppDelegate.swift.o",
+        "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/CurveChart.swift.o",
+        "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/FanController.swift.o",
+        "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/MenuContentView.swift.o",
+        "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/Profile.swift.o",
+        "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/ProfileEditorView.swift.o",
+        "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/SMC.swift.o",
+        "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx26.0",
+        "-whole-module-optimization",
+        "-num-threads",
+        "14",
+        "-serialize-diagnostics",
+        "-O",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "FanCurve_main",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "fancurve"
+      ],
+      "outputFileMapPath" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/AppDelegate.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/CurveChart.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/FanController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/MenuContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/Profile.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/ProfileEditorView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/SMC.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/Modules/FanCurve.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/isaac/Projects/FanCurve/Sources/FanCurve/AppDelegate.swift",
+        "/Users/isaac/Projects/FanCurve/Sources/FanCurve/CurveChart.swift",
+        "/Users/isaac/Projects/FanCurve/Sources/FanCurve/FanController.swift",
+        "/Users/isaac/Projects/FanCurve/Sources/FanCurve/MenuContentView.swift",
+        "/Users/isaac/Projects/FanCurve/Sources/FanCurve/Profile.swift",
+        "/Users/isaac/Projects/FanCurve/Sources/FanCurve/ProfileEditorView.swift",
+        "/Users/isaac/Projects/FanCurve/Sources/FanCurve/SMC.swift",
+        "/Users/isaac/Projects/FanCurve/Sources/FanCurve/main.swift"
+      ],
+      "tempsPath" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build",
+      "wholeModuleOptimization" : true
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "FanCurve" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "FanCurve",
+      "-package-name",
+      "fancurve",
+      "-c",
+      "/Users/isaac/Projects/FanCurve/Sources/FanCurve/AppDelegate.swift",
+      "/Users/isaac/Projects/FanCurve/Sources/FanCurve/CurveChart.swift",
+      "/Users/isaac/Projects/FanCurve/Sources/FanCurve/FanController.swift",
+      "/Users/isaac/Projects/FanCurve/Sources/FanCurve/MenuContentView.swift",
+      "/Users/isaac/Projects/FanCurve/Sources/FanCurve/Profile.swift",
+      "/Users/isaac/Projects/FanCurve/Sources/FanCurve/ProfileEditorView.swift",
+      "/Users/isaac/Projects/FanCurve/Sources/FanCurve/SMC.swift",
+      "/Users/isaac/Projects/FanCurve/Sources/FanCurve/main.swift",
+      "-I",
+      "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/Modules",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-whole-module-optimization",
+      "-num-threads",
+      "14",
+      "-serialize-diagnostics",
+      "-O",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "FanCurve_main",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "fancurve",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "FanCurve" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/AppDelegate.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/CurveChart.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/FanController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/MenuContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/Profile.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/ProfileEditorView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/SMC.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/Sources/FanCurve/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/sources"
+    },
+    "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/AppDelegate.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/CurveChart.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/FanController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/MenuContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/Profile.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/ProfileEditorView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/SMC.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve.product/Objects.LinkFileList"
+    },
+    "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}
