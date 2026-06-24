@@ -1,34 +1,37 @@
 #!/bin/bash
 set -e
 
-REPO="https://github.com/smedleyi/FanCurve"
+REPO="https://github.com/smedleyi/FanCurve.git"
 
-# ── If running via curl (no local files), download the repo first ─────────
+# ── If running via curl (no local files), clone the repo first ────────────
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd 2>/dev/null || echo "")"
-if [ ! -d "$SCRIPT_DIR/FanCurve.app" ]; then
+if [ ! -d "$SCRIPT_DIR/daemon" ]; then
     echo "=== FanCurve Installer ==="
     echo "→ Downloading FanCurve…"
     TMP=$(mktemp -d)
-    curl -fsSL "$REPO/archive/refs/heads/main.zip" -o "$TMP/fancurve.zip"
-    unzip -q "$TMP/fancurve.zip" -d "$TMP"
-    rm "$TMP/fancurve.zip"
-    bash "$TMP/FanCurve-main/install.sh"
+    git clone --depth 1 "$REPO" "$TMP/FanCurve"
+    bash "$TMP/FanCurve/install.sh"
     rm -rf "$TMP"
     exit 0
 fi
 
 APP_DEST="$HOME/Applications/FanCurve.app"
 DAEMON_SRC="$SCRIPT_DIR/daemon/fancurve-daemon"
+DAEMON_C="$SCRIPT_DIR/daemon/fancurve-daemon.c"
 DAEMON_PLIST="$SCRIPT_DIR/com.local.fancurve-daemon.plist"
 AGENT_PLIST="$SCRIPT_DIR/com.local.fancurve.plist"
 
 echo "=== FanCurve Installer ==="
 
-# ── 1. Build daemon if needed ─────────────────────────────────────────────
-if [ ! -f "$DAEMON_SRC" ]; then
-    echo "→ Compiling fancurve-daemon…"
-    cc -o "$DAEMON_SRC" "$SCRIPT_DIR/daemon/fancurve-daemon.c" -framework IOKit -lm
+# ── 1. Compile daemon ─────────────────────────────────────────────────────
+echo "→ Compiling fancurve-daemon…"
+if ! cc -o "$DAEMON_SRC" "$DAEMON_C" -framework IOKit -lm 2>&1; then
+    echo ""
+    echo "  ✗ Compilation failed. Install Xcode Command Line Tools and try again:"
+    echo "    xcode-select --install"
+    exit 1
 fi
+echo "  ✓ Daemon compiled"
 
 # ── 2. Install app ────────────────────────────────────────────────────────
 echo "→ Installing FanCurve.app to ~/Applications…"
