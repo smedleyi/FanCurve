@@ -1,5 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/isaac/Projects/FanCurve/.build/arm64-apple-macosx/release/FanCurve'
-relocations:     []
-...
