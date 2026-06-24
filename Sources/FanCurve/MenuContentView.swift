@@ -73,7 +73,7 @@ struct MenuContentView: View {
         HStack(alignment: .top, spacing: 0) {
             VStack(alignment: .leading, spacing: 4) {
                 statRow(icon: "thermometer.medium", label: controller.store.tempSensor.rawValue, value: "\(Int(controller.activeTemp))°C")
-                statRow(icon: "fan", label: "Fan 0", value: "\(Int(controller.fan0RPM)) RPM")
+                statRow(icon: "fan", label: controller.fanCount > 1 ? "Fan 0" : "Fan", value: "\(Int(controller.fan0RPM)) RPM")
                 if controller.fanCount > 1 {
                     statRow(icon: "fan", label: "Fan 1", value: "\(Int(controller.fan1RPM)) RPM")
                 }
