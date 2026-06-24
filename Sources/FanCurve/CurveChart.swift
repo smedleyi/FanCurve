@@ -11,7 +11,7 @@ struct CurveChart: View {
     private let tempRange: ClosedRange<Double> = 0...105
 
     private let xAxisH:  CGFloat = 16
-    private let padV:    CGFloat = 8    // keeps top/bottom points inset from edge
+    private let padV:    CGFloat = 14   // keeps top/bottom points inset from edge
     private let padH:    CGFloat = 8    // keeps left/right points inset from edge
 
     @State private var dragging: UUID? = nil

@@ -306,7 +306,7 @@ struct ProfileEditorView: View {
                 }
             }
             .scrollIndicators(.hidden)
-            .frame(height: 162)
+            .frame(height: 142)
 
             HStack {
                 Button("+ Add Point") {
@@ -352,7 +352,7 @@ struct ProfileEditorView: View {
         )
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
-        .frame(height: 220)
+        .frame(height: 240)
     }
 
     // MARK: - Footer
