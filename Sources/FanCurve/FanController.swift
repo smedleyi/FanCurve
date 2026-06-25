@@ -92,13 +92,15 @@ final class FanController: ObservableObject {
         }
         let curveRPM = store.activeProfile.targetRPM(at: temp)
         let effectiveCap = store.activeProfile.maxFanSpeed ?? fanMax
-        let target = safetyActive ? fanMax : min(curveRPM, effectiveCap)
+        let raw = safetyActive ? fanMax : min(curveRPM, effectiveCap)
+        // Anything below the hardware minimum has no effect, so hand back to thermalmonitord
+        let target = (raw > 0 && raw < fanMin) ? 0 : raw
         let delta = target - commandedRPM
         guard safetyActive || delta > 50 || delta < -200 || commandedRPM == 0 || target == 0 else { return }
         commandedRPM = target
         if target == 0 {
             writePermissionOK = true
-            SMC.resetTargetRPM()  // 0 on curve = hand back to thermalmonitord
+            SMC.resetTargetRPM()
         } else {
             writePermissionOK = SMC.setTargetRPM(target)
         }
