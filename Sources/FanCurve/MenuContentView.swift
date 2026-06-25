@@ -73,7 +73,7 @@ struct MenuContentView: View {
             }
         }
         .frame(width: 290)
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: .windowBackgroundColor).opacity(0.85)))
+        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
         .modifier(GlassEffectModifier())
     }
 
