@@ -15,8 +15,10 @@ final class FanController: ObservableObject {
     @Published var store: ProfileStore
     @Published var writePermissionOK: Bool = true  // false if smc writes fail
 
-    // RPM we last commanded
+    // RPM we last commanded to the SMC
     private(set) var commandedRPM: Double = 0
+    // Raw curve target before the fanMin floor (shown in UI)
+    @Published private(set) var curveTarget: Double = 0
 
     // Hysteresis: stays true until temp drops 10°C below safetyTemp
     private var safetyActive: Bool = false
@@ -93,6 +95,7 @@ final class FanController: ObservableObject {
         let curveRPM = store.activeProfile.targetRPM(at: temp)
         let effectiveCap = store.activeProfile.maxFanSpeed ?? fanMax
         let raw = safetyActive ? fanMax : min(curveRPM, effectiveCap)
+        curveTarget = raw
         // Anything below the hardware minimum has no effect, so hand back to thermalmonitord
         let target = (raw > 0 && raw < fanMin) ? 0 : raw
         let delta = target - commandedRPM
