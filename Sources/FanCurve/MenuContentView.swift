@@ -1,11 +1,13 @@
 import SwiftUI
 
-private struct GlassEffectModifier: ViewModifier {
+// Matches the material used by system menu bar panels (WiFi, Control Centre, etc.)
+// On macOS 26+ this is Liquid Glass; on earlier versions it's the standard popover material.
+struct PanelBackground: ViewModifier {
     func body(content: Content) -> some View {
         if #available(macOS 26.0, *) {
-            content.glassEffect(.clear, in: RoundedRectangle(cornerRadius: 10))
+            content.glassEffect(.regular, in: RoundedRectangle(cornerRadius: 10))
         } else {
-            content
+            content.background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
         }
     }
 }
@@ -73,8 +75,7 @@ struct MenuContentView: View {
             }
         }
         .frame(width: 290)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
-        .modifier(GlassEffectModifier())
+        .modifier(PanelBackground())
     }
 
     // MARK: - Stats

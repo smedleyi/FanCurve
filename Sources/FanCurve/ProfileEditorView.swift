@@ -43,7 +43,7 @@ struct ProfileEditorView: View {
             }
         }
         .frame(width: 640, height: 490)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+        .modifier(PanelBackground())
         .onExitCommand { onDismiss() }
     }
 
