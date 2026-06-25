@@ -2,7 +2,7 @@
 
 A macOS menu bar app for custom fan speed control on Apple Silicon Macs. Define per-profile fan curves, set a max speed cap, and let the fans go silent at low temperatures — all without touching macOS's thermal management when you don't need it.
 
-![macOS 26+](https://img.shields.io/badge/macOS-26%2B-blue) ![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-only-lightgrey)
+![macOS 14+](https://img.shields.io/badge/macOS-14%2B-blue) ![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-only-lightgrey)
 
 ---
 
@@ -23,7 +23,7 @@ A macOS menu bar app for custom fan speed control on Apple Silicon Macs. Define 
 ## Requirements
 
 - Apple Silicon Mac (M1 or later)
-- macOS 26 or later
+- macOS 14 (Sonoma) or later
 - Admin password for daemon installation (one-time)
 
 ---
