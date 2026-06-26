@@ -89,7 +89,7 @@ struct MenuContentView: View {
                     statRow(icon: "fan", label: "Fan 1", value: "\(Int(controller.fan1RPM)) RPM")
                 }
                 if !controller.isAutoMode {
-                    statRow(icon: "target", label: "Target", value: "\(Int(controller.curveTarget)) RPM")
+                    statRow(icon: "target", label: "Target", value: "\(Int(controller.commandedRPM)) RPM")
                         .foregroundColor(.secondary)
                 }
             }

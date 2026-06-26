@@ -4,6 +4,7 @@ set -e
 cd "$(dirname "$0")"
 
 echo "→ Building…"
+swift package clean
 swift build -c release
 
 echo "→ Copying binary…"
