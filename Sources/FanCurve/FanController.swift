@@ -96,8 +96,9 @@ final class FanController: ObservableObject {
         let effectiveCap = store.activeProfile.maxFanSpeed ?? fanMax
         let raw = safetyActive ? fanMax : min(curveRPM, effectiveCap)
         curveTarget = raw
-        // Anything below the hardware minimum has no effect, so hand back to thermalmonitord
-        let target = (raw > 0 && raw < fanMin) ? 0 : raw
+        // Clamp to fanMin so we stay in control — handing off lets thermalmonitord
+        // set higher targets based on other sensors even when the curve says low.
+        let target = (raw > 0 && raw < fanMin) ? fanMin : raw
         let delta = target - commandedRPM
         guard safetyActive || delta > 50 || delta < -200 || commandedRPM == 0 || target == 0 else { return }
         commandedRPM = target
