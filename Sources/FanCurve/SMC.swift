@@ -14,12 +14,12 @@ enum SMC {
         // than raw P-core die temps (TCMb), which spike on every short burst.
         // Average them to get a smooth, representative SoC temperature.
         let packageKeys = ["Tp01","Tp05","Tp0D","Tp0H","Tp0L","Tp0P","Tp0X","Tp0b"]
-        let pkgTemps = packageKeys.compactMap { readFloat($0) }.filter { $0 > 0 && $0 < 120 }
+        let pkgTemps = packageKeys.compactMap { readFloat($0) }.filter { $0 > 20 && $0 < 120 }
         if !pkgTemps.isEmpty {
             return pkgTemps.reduce(0, +) / Double(pkgTemps.count)
         }
         // Fallback: individual cluster max
-        return ["TCMb","Tex1","Te05"].compactMap { readFloat($0) }.max() ?? 0
+        return ["TCMb","Tex1","Te05"].compactMap { readFloat($0) }.filter { $0 > 20 && $0 < 120 }.max() ?? 0
     }
 
     static func gpuTemp() -> Double {
